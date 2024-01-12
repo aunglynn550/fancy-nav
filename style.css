@@ -1,0 +1,80 @@
+:root {
+  --body-bg: #123;
+  --nav-bg: #234;
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  font-family: system-ui;
+}
+ul{
+  list-style: none;
+}
+body {
+  min-height: 200vh;
+  display: grid;
+  grid-template-columns: 20rem 1fr;
+  margin: 0;
+  font-size: 1.25rem;
+  background-color: var(--body-bg);
+  color: #fff;
+}
+
+nav{
+  max-height: 100svh;
+  position: sticky;
+  top: 0;
+  background-color: var(--nav-bg);
+}
+
+.nav_list{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  display: grid;
+  gap: 4rem;
+  padding-block: 2rem;
+}
+
+.nav_list li{
+  padding: 1rem 2.3rem;
+  margin-inline-start: 1.5em;
+  background-color: #123;
+  border-radius: 100vw 0 0 100vw;
+}
+.nav_list li.active{  
+  background-color: var(--body-bg);
+  position: relative;
+}
+
+.nav_list li.active::before,
+.nav_list li.active::after{
+
+  --border-radius: 1rem;
+
+  content: '';
+  position: absolute;
+  width: var(--border-radius);
+  height: var(--border-radius);
+  right: 0;
+  background-color: var(--nav-bg);
+ 
+}
+.nav_list li.active::before{
+  border-radius: 0 0 100vw 0;
+  box-shadow: 5px 5px  0px 5px var(--body-bg);
+  top: calc(var(--border-radius)* -1);
+}
+.nav_list li.active::after{
+  border-radius: 0 100vw 0 0;
+  box-shadow: 5px -5px  0px 5px var(--body-bg);
+  bottom: calc(var(--border-radius)* -1);
+}
+
+.nav_list a{
+  color: #ffff;
+  text-decoration: none;
+}
